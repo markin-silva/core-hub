@@ -1,4 +1,4 @@
-# nexus-hub
+# core-hub
 
 Private, self-hosted hub for managing personal life. Data ownership is the top priority; cross-domain insights come later.
 

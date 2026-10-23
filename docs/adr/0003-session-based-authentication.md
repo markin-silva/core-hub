@@ -5,7 +5,7 @@
 
 ## Context
 
-nexus-hub needs authentication for its owner and for a second user (a shared account for household finances). The frontend and the API will be served from the same site, so cookies can be used safely. Options considered:
+core-hub needs authentication for its owner and for a second user (a shared account for household finances). The frontend and the API will be served from the same site, so cookies can be used safely. Options considered:
 
 1. Rails native session authentication with `has_secure_password`.
 2. Devise with JWT tokens.

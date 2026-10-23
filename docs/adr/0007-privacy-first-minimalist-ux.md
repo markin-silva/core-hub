@@ -5,7 +5,7 @@
 
 ## Context
 
-nexus-hub exists so that its owner keeps full control of personal data and can combine information across life domains later. That goal shapes every architectural choice, so it is recorded here as a guiding principle.
+core-hub exists so that its owner keeps full control of personal data and can combine information across life domains later. That goal shapes every architectural choice, so it is recorded here as a guiding principle.
 
 ## Decision
 
