@@ -5,7 +5,7 @@
 
 ## Context
 
-nexus-hub will grow into several business modules (finances, workouts, car maintenance, tasks, music studies). They share infrastructure: Docker, CI/CD, deployment, and authentication. Splitting them across repositories would duplicate that setup for a single-owner system and add coordination overhead.
+core-hub will grow into several business modules (finances, workouts, car maintenance, tasks, music studies). They share infrastructure: Docker, CI/CD, deployment, and authentication. Splitting them across repositories would duplicate that setup for a single-owner system and add coordination overhead.
 
 ## Decision
 
