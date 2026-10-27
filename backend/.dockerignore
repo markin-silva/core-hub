@@ -1,0 +1,5 @@
+log/*
+tmp/*
+storage/*
+.git
+*.key
