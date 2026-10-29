@@ -52,6 +52,9 @@ RSpec.configure do |config|
   # Request specs use the host Rails allows in development and test.
   config.before(type: :request) { host! "localhost" }
 
+  # Rate limit counters live in the cache and must not leak between examples (ADR-0014).
+  config.before { Rails.cache.clear }
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
