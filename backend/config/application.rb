@@ -40,5 +40,19 @@ module Backend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Locales the API can answer in. The Accept-Language header selects one (ADR-0015).
+    config.i18n.available_locales = %i[en pt-BR]
+    config.i18n.default_locale = :en
+
+    # Session support for authentication controllers (ADR-0014). api_only skips
+    # the cookie and session middleware, so they are added to the Rack stack here.
+    config.session_store :cookie_store,
+      key: "_core_hub_session",
+      same_site: :lax,
+      httponly: true,
+      secure: Rails.env.production?
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use config.session_store, config.session_options
   end
 end

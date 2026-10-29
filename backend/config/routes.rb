@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get "health", to: "health#show"
+
+      resources :users, only: :create
+      resource :session, only: %i[create destroy]
+      resource :me, only: :show, controller: "me"
     end
   end
 
