@@ -1,0 +1,26 @@
+pt-BR:
+  errors:
+    messages:
+      blank: "não pode ficar em branco"
+      invalid: "é inválido"
+      too_short:
+        one: "é muito curto (mínimo de 1 caractere)"
+        other: "é muito curto (mínimo de %{count} caracteres)"
+    unauthenticated:
+      title: "Não autorizado"
+      detail: "Você precisa estar logado para fazer isso."
+    invalid_credentials:
+      title: "Credenciais inválidas"
+      detail: "O e-mail ou a senha estão incorretos."
+    too_many_attempts:
+      title: "Muitas tentativas"
+      detail: "Muitas tentativas de login. Tente novamente em alguns minutos."
+    validation_failed:
+      title: "Validação falhou"
+      detail: "Alguns campos são inválidos."
+    bad_request:
+      title: "Requisição inválida"
+  activerecord:
+    errors:
+      messages:
+        taken: "já está em uso"
