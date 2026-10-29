@@ -25,4 +25,7 @@ group :development, :test do
 
   # Audits gems for known security defects (use config/bundler-audit.yml to ignore issues)
   gem "bundler-audit", require: false
+
+  # Rails default style rules (ADR-0006)
+  gem "rubocop-rails-omakase", require: false
 end
