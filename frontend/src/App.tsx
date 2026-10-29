@@ -1,29 +1,30 @@
-import { useEffect, useState } from 'react'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { RequireAuth } from './auth/RequireAuth'
+import { HomePage } from './pages/HomePage'
+import { LoginPage } from './pages/LoginPage'
+import { SignupPage } from './pages/SignupPage'
 
-type Status = 'loading' | 'ok' | 'error'
+const queryClient = new QueryClient()
 
 function App() {
-  const [status, setStatus] = useState<Status>('loading')
-
-  useEffect(() => {
-    fetch('/api/v1/health')
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`)
-        return res.json()
-      })
-      .then((body: { status: string }) => setStatus(body.status === 'ok' ? 'ok' : 'error'))
-      .catch(() => setStatus('error'))
-  }, [])
-
   return (
-    <main className="p-4">
-      <h1 className="text-xl font-semibold">core-hub</h1>
-      <p>
-        API: {status === 'loading' && 'checking…'}
-        {status === 'ok' && 'online'}
-        {status === 'error' && 'unavailable'}
-      </p>
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route
+            path="/"
+            element={
+              <RequireAuth>
+                <HomePage />
+              </RequireAuth>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   )
 }
 
