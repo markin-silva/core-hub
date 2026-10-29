@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen } from '@testing-library/react'
-import App from './App'
+import { HealthIndicator } from './HealthIndicator'
 
-describe('App', () => {
+describe('HealthIndicator', () => {
   afterEach(() => {
     cleanup()
     vi.unstubAllGlobals()
@@ -14,7 +14,7 @@ describe('App', () => {
       vi.fn(() => new Promise(() => {})),
     )
 
-    render(<App />)
+    render(<HealthIndicator />)
 
     expect(screen.getByText(/checking/)).toBeInTheDocument()
   })
@@ -25,7 +25,7 @@ describe('App', () => {
       vi.fn(() => Promise.resolve(new Response(JSON.stringify({ status: 'ok' }), { status: 200 }))),
     )
 
-    render(<App />)
+    render(<HealthIndicator />)
 
     expect(await screen.findByText(/online/)).toBeInTheDocument()
   })
@@ -36,7 +36,7 @@ describe('App', () => {
       vi.fn(() => Promise.resolve(new Response(null, { status: 503 }))),
     )
 
-    render(<App />)
+    render(<HealthIndicator />)
 
     expect(await screen.findByText(/unavailable/)).toBeInTheDocument()
   })
@@ -47,7 +47,7 @@ describe('App', () => {
       vi.fn(() => Promise.reject(new TypeError('network down'))),
     )
 
-    render(<App />)
+    render(<HealthIndicator />)
 
     expect(await screen.findByText(/unavailable/)).toBeInTheDocument()
   })
