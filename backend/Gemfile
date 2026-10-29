@@ -28,4 +28,9 @@ group :development, :test do
 
   # Rails default style rules (ADR-0006)
   gem "rubocop-rails-omakase", require: false
+
+  # RSpec test framework (ADR-0004)
+  gem "rspec-rails", "~> 8.0.4"
+  gem "factory_bot_rails", "~> 6.5.1"
+  gem "shoulda-matchers", "~> 8.0.1"
 end
