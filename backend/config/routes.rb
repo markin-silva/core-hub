@@ -8,4 +8,8 @@ Rails.application.routes.draw do
       get "health", to: "health#show"
     end
   end
+
+  # SPA fallback: client-side routes return the React entry point (ADR-0009).
+  # Unknown /api paths are excluded so they keep returning 404.
+  get "*path", to: "spa#index", constraints: ->(request) { !request.path.start_with?("/api") }
 end
